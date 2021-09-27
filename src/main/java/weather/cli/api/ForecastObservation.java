@@ -32,7 +32,7 @@ public class ForecastObservation {
                                @JsonProperty("clouds") double avgCloudCoverage,
                                @JsonProperty("weather") Map<String, Object> weather) {
         this.forecastDate = LocalDate.parse(forecastDate);
-        this.windSpeed = windSpeed;
+        this.windSpeed = windSpeed * 3.6;
         this.windDirection = windDirection;
         this.avgTemparature = avgTemparature;
         this.minTemperature = minTemperature;
@@ -83,7 +83,7 @@ public class ForecastObservation {
         return dateTimeFormatter.format(forecastDate) + "\n\"" +
                 weatherDescription + "\"\n" +
                 "Avg temp: " + avgTemparature + "°C (Min " + minTemperature + " °C, Max " + maxTemperature + " °C)\n" +
-                "Wind: " + windSpeed + " km/h to " + windDirection + "\n" +
+                "Wind: " + String.format("%.2f", windSpeed) + " km/h to " + windDirection + "\n" +
                 "Cloud coverage: " + avgCloudCoverage + " %\n" +
                 "Probability of precipitation: " + precipitationProbability + " %";
     }

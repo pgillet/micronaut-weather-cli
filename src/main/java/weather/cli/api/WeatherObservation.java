@@ -107,7 +107,7 @@ public class WeatherObservation {
         return dateTimeFormatter.format(LocalDate.now()) + " at " + cityName + ", " + countryCode + "\n\"" +
                 weatherDescription + "\"\n" +
                 "Temp: " + temperature + "°C (felt " + apparentTemperature + " °C)\n" +
-                "Wind: " + windSpeed + " km/h to " + windDirection + "\n" +
+                "Wind: " + String.format("%.2f", windSpeed) + " km/h to " + windDirection + "\n" +
                 "Cloud coverage: " + cloudCoverage + " %\n" +
                 "Precip: " + precipitation + " mm/hr\n" +
                 "Sunrise: " + sunrise + ", Sunset: " + sunset;
